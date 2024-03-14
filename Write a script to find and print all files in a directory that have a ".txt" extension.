@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+        echo "Argument not passed"
+fi
+
+directory_path=$1
+
+if [ ! -d "$directory_path" ]; then
+        echo "directory does not exist"
+fi
+
+
+find "$directory_path" -type f -name "*.txt" | while read -r file; do
+        echo$file
+done
+
